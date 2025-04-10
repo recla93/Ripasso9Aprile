@@ -1,10 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+
+    <a href="/crasha">Crasha</a>
+
+
+
+
+
+
+    <!-- TAG IMPORTANTI
+            div -> sezione della pagina
+            h1-6 -> header, titoli, 1 grande, 6 piccolo
+            form -> moduli da compilare
+            input -> casella di testo, con type="submit" diventa un bottone
+            select -> dropdown
+            option -> singola scelta del select
+            textarea-> casella di testo grande
+            a -> link
+            p -> paragrafo di testo
+            span -> elemento amorfo, serve per dare attributi
+            ul -> lista
+            li -> singola riga di una lista
+
+            table -> tabella
+            tr -> riga tabella
+            th -> cella header
+            td -> cella con dati
+    -->
+
+    <!--
+        Ogni elemento può avere un CONTENUTO, viene definito CONTENUTO
+        ciò che è compreso tra apertura e chiusura di un tag
+        es:  apertura <p>
+                        CONTENUTO
+
+             chiusura </p>
+    -->
+
+    <!--
+    Ogni elemento può avere degli ATTRIBUTI, viene definito ATTRIBUTO
+    la coppia chiave-valore definita nell'apertura di un tag
+    es:  apertura <p  id="testo" style="color:red"   >
+         chiusura </p>
+
+         Questo paragrafo ha 2 attributi:
+         id con valore "testo"
+         style con valore "color:red"
+
+         Gli attributi modificano il comportamento dell'elemento
+-->
+
+    <!--
+        Thymeleaf fornisce degli attributi speciali, chiamati DIRETTIVE
+        Li riconoscete perchè iniziano tutti con th:
+        Servono o per impostare valori di attributi standard prendendoli da Java
+        o per eseguire logica (IF,CICLI,Interpolazione)
+
+        es: immaginate di avere nel model 2 valori:
+            classeCss, con valore "graficaBella"
+            testo, con valore "Ciao mi chiamo stefano"
+
+
+            <p th:class="${classeCss}" th:text="${testo}"></p>
+            quando la view viene eseguita produrrà
+
+
+              <p class="graficaBella" > Ciao mi chiamo stefano  </p>
+
+    -->
+
+
+
 </body>
 </html>

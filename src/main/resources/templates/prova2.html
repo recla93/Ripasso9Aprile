@@ -5,24 +5,58 @@
     <title>Title</title>
     <style>
 
-        .a
+        body
         {
-            color: red;
+            background-color: black ;
         }
 
-        .b
+        .ticketRisoltoUrgente
         {
             color: blue;
         }
 
-        .c
+        .ticketRisoltoNonUrgente
         {
-            color: green;
+            color: grey;
         }
+
+
+        .ticketIrrisoltoUrgente
+        {
+            color: red;
+        }
+
+        .ticketIrrisoltoNonUrgente
+        {
+            color: yellow;
+        }
+
+
 
     </style>
 </head>
 <body>
-    <p th:class="${classeCss}" th:text="${testo}"></p>
+        <!-- Ripeto il codice dalla riga 24 alla 29 per ogni elemento dentro la lista tickets (ogni elemento lo chiamo t) -->
+    <div th:each="t:${tickets}">
+             Viene impostato come suo contenuto il valore del contenuto del ticket
+             Viene impostato come class ticketRisolto se il boolean risolto è true, ticketIrrisolto se è false
+            <p th:text="${t.contenuto}" th:class="${t.risolto ? (t.urgente ? 'ticketRisoltoUrgente'  : 'ticketRisoltoNonUrgente') :
+                                                                (t.urgente ? 'ticketIrrisoltoUrgente': 'ticketIrrisoltoNonUrgente')}" >
+            </p>
+        <p th:text="${t.contenuto}" th:class="${ticketsMap.get(t)}" >
+        </p>
+    </div>
+
+        <!--Esempio con le mappe
+            qui sotto scorro tutte le chiavi della mappa (i tickets quindi)
+         -->
+        <div th:each="t:${ticketsMap.keySet()}">
+            <!-- Imposto il contenuto del ticket come testo -->
+                                    <!--    Per impostare la classeCss prendo dalla mappa il valore collegato a quel ticket            -->
+            <p th:text="${t.contenuto}" th:class="${ticketsMap.get(t)}" >
+            </p>
+        </div>
+
+
 </body>
 </html>
